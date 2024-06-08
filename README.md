@@ -8,6 +8,29 @@
 
 `blahaj` is a simple cli program to display in photo or ascii art our beloved shark from IKEA
 
+# ❓ Usage
+
+```sh
+$ blahaj --help
+Usage: blahaj [options] [command]
+
+🦈 Display blahaj in your terminal!
+
+Options:
+  -V, --version        output the version number
+  -b, --baby           output the baby blahaj   
+  -h, --help           display help for command 
+
+Commands:
+  ascii_art [options]  display blahaj as ascii art
+
+$ blahaj
+
+$ blahaj --baby
+
+$ blahaj ascii_art --default # (or --pride)
+```
+
 # 💾 Installation
 
 To install `blahaj` in your computer, you need to use `npm install -g @sech1p/blahaj` command or download single binary from [releases](https://github.com/sech1p/blahaj/releases). That's it.
