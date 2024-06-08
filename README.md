@@ -16,7 +16,7 @@ To install `blahaj` in your computer, you need to use `npm install -g @sech1p/bl
 
 ✨ Plans for v0.1.0:
 
-- [ ] Binaries
+- [X] Binaries
 - [ ] More ascii art blahajs
 - [ ] Different color blahajs
 - [ ] Ascii art without unicode
