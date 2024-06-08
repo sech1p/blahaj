@@ -1,0 +1,66 @@
+on:
+  push:
+    tags:
+      - '*'
+
+env:
+  node: true
+  es6: true
+
+jobs:
+  release_job_linux:
+    runs-on: ubuntu-latest
+    name: 💾 Releasing
+    steps:
+      - name: ✔ Checkout
+        uses: actions/checkout@v4
+
+      - name: 💻 Download node and release package
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - run: npm install --save-dev
+      - run: npm run build
+      - run: npm install -g @yao-pkg/pkg
+      - run: pkg dist/index.js
+
+      - name: 🛠 Draft Release
+        id: draft_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ✨ ${{ github.ref }}
+          draft: false
+
+      - name: 🛠 Build Release (Linux)
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.draft_release.outputs.upload_url }}
+          asset_path: ./index-linux
+          asset_name: blahaj-linux-x64
+          asset_content_type: application/x-elf
+
+      - name: 🛠 Build Release (Windows)
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.draft_release.outputs.upload_url }}
+          asset_path: ./index-win.exe
+          asset_name: blahaj-win-x64.exe
+          asset_content_type: application/vnd.microsoft.portable-executable
+      
+      - name: 🛠 Build Release (macOS)
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.draft_release.outputs.upload_url }}
+          asset_path: ./index-macos
+          asset_name: blahaj-macos-x64
+          asset_content_type: application/x-mach-binary
