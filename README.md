@@ -12,6 +12,16 @@
 
 To install `blahaj` in your computer, you need to use `npm install -g @sech1p/blahaj` command or download single binary from [releases](https://github.com/sech1p/blahaj/releases). That's it.
 
+# 🗺️ Roadmap
+
+✨ Plans for v0.1.0:
+
+- [ ] Binaries
+- [ ] More ascii art blahajs
+- [ ] Different color blahajs
+- [ ] Ascii art without unicode
+- [ ] Change width and height of rendered blahaj
+
 # 🗒️ License
 
 `blahaj` is licensed under [Apache-2.0](LICENSE) license.
