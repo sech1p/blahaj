@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node dist/index.js",
-    "build": "npx tsc --build",
+    "build": "npx tsc --build && gulp",
     "clean": "npx tsc --clean",
     "dev": "nodemon --watch \"src/**\" --ext \"ts\" --exec \"npm run build && npm start\""
   },
