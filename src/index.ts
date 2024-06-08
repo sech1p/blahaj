@@ -2,7 +2,6 @@
 
 import { draw } from "terminal-img";
 import { program } from "commander";
-import path from "node:path";
 const { version } = require("./package.json");
 
 const BLAHAJ_URL: string = "https://www.ikea.com/pl/pl/images/products/blahaj-pluszak-rekin__0710175_pe727378_s5.jpg";
