@@ -4,11 +4,11 @@
     <img src="images/blahaj_showcase.gif" alt="blahaj command-line program showcase" />
 </p>
 
-# ❓ ~~OwO~~, what's this?
+## ❓ ~~OwO~~, what's this?
 
 `blahaj` is a simple command line program to display in photo or ascii art our beloved shark from IKEA
 
-# ❓ Usage
+## ❓ Usage
 
 ```sh
 $ blahaj --help
@@ -31,11 +31,11 @@ $ blahaj --baby
 $ blahaj ascii_art --default # (or --pride)
 ```
 
-# 💾 Installation
+## 💾 Installation
 
 To install `blahaj` in your computer, you need to use `npm install -g @sech1p/blahaj` command or download single binary from [releases](https://github.com/sech1p/blahaj/releases). That's it.
 
-# 🗺️ Roadmap
+## 🗺️ Roadmap
 
 ✨ Plans for v0.1.0:
 
@@ -45,7 +45,7 @@ To install `blahaj` in your computer, you need to use `npm install -g @sech1p/bl
 - [ ] Ascii art without unicode
 - [ ] Change width and height of rendered blahaj
 
-# 🗒️ License
+## 🗒️ License
 
 `blahaj` is licensed under [Apache-2.0](LICENSE) license.
 
