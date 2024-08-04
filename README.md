@@ -1,12 +1,12 @@
 # 🦈 Blahaj
 
 <p align="center">
-    <img src="images/blahaj_showcase.gif" alt="blahaj cli program showcase" />
+    <img src="images/blahaj_showcase.gif" alt="blahaj command-line program showcase" />
 </p>
 
 # ❓ ~~OwO~~, what's this?
 
-`blahaj` is a simple cli program to display in photo or ascii art our beloved shark from IKEA
+`blahaj` is a simple command line program to display in photo or ascii art our beloved shark from IKEA
 
 # ❓ Usage
 
