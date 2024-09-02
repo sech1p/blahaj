@@ -89,7 +89,7 @@ const main = async (_arguments: string[]) => {
     checkIfCommandExists("viu --version")
     .then((exists) => {
       if (exists) {
-        spawn(`curl ${BLAHAJ_URL} -o /tmp/blahaj.jpg`);
+        spawn("curl", [`${BLAHAJ_URL} -o /tmp/blahaj.jpg`]);
         console.log();
         spawn("viu", ["/tmp/blahaj.jpg"], { stdio: "inherit" });
         process.exit(0);
@@ -180,7 +180,7 @@ const main = async (_arguments: string[]) => {
       checkIfCommandExists("viu --version")
         .then((exists) => {
           if (exists) {
-            spawn(`curl`, [`${BABY_BLAHAJ_URL} -o /tmp/baby_blahaj.jpg`]);
+            spawn("curl", [`${BABY_BLAHAJ_URL} -o /tmp/baby_blahaj.jpg`]);
             console.log();
             spawn("viu", ["/tmp/baby_blahaj.jpg"], { stdio: "inherit" });
             process.exit(0);
