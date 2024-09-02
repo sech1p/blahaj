@@ -83,6 +83,16 @@ const BLAHAJ_TRANSGENDER_ASCII_ART: string = `
 ➖➖➖➖🟪🟪🟪
 ➖➖➖🟦🟦🟦
 ➖➖➖🟦🟦`;
+const BLAHAJ_NONBINARY_ASCII_ART: string = `
+🟨🟨🟨🟨🟨➖🟨🟨
+⬜🔳⬜🟨🟨🟨🟨🟨
+➖⬜⬜⬜⬜⬜⬜
+➖➖⬜⬜⬜⬜⬜⬜
+➖🟪🟪➖🟪🟪🟪🟪 
+➖➖➖➖➖🟪🟪🟪
+➖➖➖➖🟪🟪🟪
+➖➖➖⬛⬛⬛
+➖➖➖⬛⬛`;
 
 const main = async (_arguments: string[]) => {
   if (_arguments.length === 2) {
@@ -123,7 +133,7 @@ const main = async (_arguments: string[]) => {
     .description("display blahaj as ascii art")
     .option("--no-unicode", "displays ascii art without unicode characters of blahaj")
     .option("--default", "displays default ascii art (unicode) of blahaj")
-    .option("--pride <string>", "select pride color of ascii art haj [gay, lesbian, transgender]")
+    .option("--pride <string>", "select pride color of ascii art haj [gay, lesbian, transgender, nonbinary]")
     .action((_, options) => {
       const params = options.parent.args.slice(1);
       const mainOption = params[0];
@@ -150,6 +160,10 @@ const main = async (_arguments: string[]) => {
             }
             case "transgender": {
               console.log(BLAHAJ_TRANSGENDER_ASCII_ART);
+              process.exit(0);
+            }
+            case "nonbinary": {
+              console.log(BLAHAJ_NONBINARY_ASCII_ART);
               process.exit(0);
             }
           }
