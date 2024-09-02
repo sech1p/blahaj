@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 
+import checkIfCommandExists from "./commandexists";
+import { spawn } from "node:child_process";
 import { draw } from "terminal-img";
 import { program } from "commander";
 const { version } = require("./package.json");
+
 
 const BLAHAJ_URL: string = "https://www.ikea.com/pl/pl/images/products/blahaj-pluszak-rekin__0710175_pe727378_s5.jpg";
 const BABY_BLAHAJ_URL: string = "https://www.ikea.com/pl/pl/images/products/blahaj-pluszak-maly-rekin__0877393_pe730957_s5.jpg";
@@ -49,6 +52,21 @@ const BLAHAJ_TRANSGENDER_ASCII_ART: string = `
 
 const main = async (_arguments: string[]) => {
   if (_arguments.length === 2) {
+    checkIfCommandExists("viu --version")
+    .then((exists) => {
+      if (exists) {
+        spawn(`curl ${BLAHAJ_URL} -o /tmp/blahaj.jpg`);
+        console.log();
+        spawn("viu", ["/tmp/blahaj.jpg"], { stdio: "inherit" });
+        process.exit(0);
+      } else {
+        console.error("❌ viu command not found! Please install it from https://github.com/atanunq/viu");
+        process.exit(1);
+      }
+    });
+  }
+
+  if (_arguments.length === 3 && _arguments[2] == "--classic") {
     console.log(
       await draw(
         BLAHAJ_URL,
@@ -58,6 +76,7 @@ const main = async (_arguments: string[]) => {
         },
       ),
     );
+    
     process.exit(0);
   }
 

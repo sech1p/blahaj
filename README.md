@@ -18,13 +18,16 @@ Usage: blahaj [options] [command]
 
 Options:
   -V, --version        output the version number
-  -b, --baby           output the baby blahaj   
+  -c, --classic        output the blahaj in legacy way by jimp (low quality so you are warned!)
+  -b, --baby           output the baby blahaj
   -h, --help           display help for command 
 
 Commands:
   ascii_art [options]  display blahaj as ascii art
 
 $ blahaj
+
+$ blahaj --classic
 
 $ blahaj --baby
 
@@ -35,9 +38,11 @@ $ blahaj ascii_art --default # (or --pride)
 
 To install `blahaj` in your computer, you need to use `npm install -g @sech1p/blahaj` command or download single binary from [releases](https://github.com/sech1p/blahaj/releases). That's it.
 
+Additionally, you need `viu` command which you can download it from [here](https://github.com/atanunq/viu). This allows to render blahaj in high quality.
+
 ## 🗺️ Roadmap
 
-✨ Plans for v0.1.0:
+✨ Plans for v0.2.0:
 
 - [X] Binaries
 - [ ] More ascii art blahajs
