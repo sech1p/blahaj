@@ -9,6 +9,40 @@ const { version } = require("./package.json");
 
 const BLAHAJ_URL: string = "https://www.ikea.com/pl/pl/images/products/blahaj-pluszak-rekin__0710175_pe727378_s5.jpg";
 const BABY_BLAHAJ_URL: string = "https://www.ikea.com/pl/pl/images/products/blahaj-pluszak-maly-rekin__0877393_pe730957_s5.jpg";
+const BLAHAJ_ASCII_ART_NO_UNICODE = `
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                           (((/                                 
+                                        /#(#((                                  
+                                       (/((#((                              ((/ 
+                                      /(((((/,                           ,((/(  
+                                    //(#%(#(/                          ,(((//   
+                                 *//####%##(/                         (#(#(/    
+               ,*/***/*/**///////////////*/#//*           (%/       ((##(#      
+      .*//((//(//////((///(/(////(/////*//(///(*,(*#///(//////*//###(%###//     
+   (((((#/(///(*/(/%(*//#((((((/(/((/#(((((#(#((//(#(##(####((/(/////(%%#((/    
+  /#(((///#((#(((/((((((#(((#(#(#(#(#(#((#(((((/(((((/#%#((((((((/*/    ####((  
+   (((#(&(%##(##%#%##(###((####(###%%(#(##((((#(/(((/(((#/(/(///            //  
+     ,#%%#%####%@%###(##(%#(%####(((%#%##(#/(/(((((/(/(/*///                    
+         .......*#####(%##(###%#(#(##((((((/(///////(                           
+          ..  ..............,..*#&%%#(%#&//                                     
+               ..  .........,...,*%%%&%%#(/(/                                   
+                       **,,,,*****/##((((#%(#(((                                
+                                        ##(%/(((%((((##                         
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+`;
 const BLAHAJ_ASCII_ART: string = `
 🟦🟦🟦🟦🟦➖🟦🟦
 ⬜🔳⬜🟦🟦🟦🟦🟦
@@ -87,6 +121,7 @@ const main = async (_arguments: string[]) => {
 
   program.command("ascii_art")
     .description("display blahaj as ascii art")
+    .option("--no-unicode", "displays ascii art without unicode characters of blahaj")
     .option("--default", "displays default ascii art (unicode) of blahaj")
     .option("--pride <string>", "select pride color of ascii art haj [gay, lesbian, transgender]")
     .action((_, options) => {
@@ -95,6 +130,10 @@ const main = async (_arguments: string[]) => {
       const prideFlagOption = params[1];
 
       switch (mainOption) {
+        case "--no-unicode": {
+          console.log(BLAHAJ_ASCII_ART_NO_UNICODE);
+          process.exit(0);
+        }
         case "--default": {
           console.log(BLAHAJ_ASCII_ART);
           process.exit(0);

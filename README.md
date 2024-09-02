@@ -33,7 +33,7 @@ $ blahaj --baby
 
 $ blahaj --baby classic
 
-$ blahaj ascii_art --default # (or --pride)
+$ blahaj ascii_art --default # (or --pride or --no-unicode)
 ```
 
 ## 💾 Installation
@@ -49,7 +49,7 @@ Additionally, you need `viu` command which you can download it from [here](https
 - [X] Binaries
 - [ ] More ascii art blahajs
 - [ ] Different color blahajs
-- [ ] Ascii art without unicode
+- [X] Ascii art without unicode
 - [ ] Change width and height of rendered blahaj
 
 ✨ Plans for v0.3.0:
