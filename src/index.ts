@@ -125,16 +125,31 @@ const main = async (_arguments: string[]) => {
   program
     .option("-b, --baby", "output the baby blahaj")
     .action(async () => {
-      console.log(
-        await draw(
-          BABY_BLAHAJ_URL,
-          {
-            width: 80,
-            height: 80,
-          },
-        ),
-      );
-      process.exit(0);
+      if (_arguments.includes("classic")) {
+        console.log(
+          await draw(
+            BABY_BLAHAJ_URL,
+            {
+              width: 80,
+              height: 80,
+            },
+          ),
+        );
+        process.exit(0);
+      }
+
+      checkIfCommandExists("viu --version")
+        .then((exists) => {
+          if (exists) {
+            spawn(`curl`, [`${BABY_BLAHAJ_URL} -o /tmp/baby_blahaj.jpg`]);
+            console.log();
+            spawn("viu", ["/tmp/baby_blahaj.jpg"], { stdio: "inherit" });
+            process.exit(0);
+          } else {
+            console.error("❌ viu command not found! Please install it from https://github.com/atanunq/viu");
+            process.exit(1);
+          }
+        });
     });
 
   program.parse(_arguments);

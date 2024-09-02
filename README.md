@@ -19,7 +19,7 @@ Usage: blahaj [options] [command]
 Options:
   -V, --version        output the version number
   -c, --classic        output the blahaj in legacy way by jimp (low quality so you are warned!)
-  -b, --baby           output the baby blahaj
+  -b, --baby           output the baby blahaj (use classic keyword after --baby argument if you want render it by legacy way)
   -h, --help           display help for command 
 
 Commands:
@@ -30,6 +30,8 @@ $ blahaj
 $ blahaj --classic
 
 $ blahaj --baby
+
+$ blahaj --baby classic
 
 $ blahaj ascii_art --default # (or --pride)
 ```
