@@ -52,6 +52,11 @@ Additionally, you need `viu` command which you can download it from [here](https
 - [ ] Ascii art without unicode
 - [ ] Change width and height of rendered blahaj
 
+✨ Plans for v0.3.0:
+
+- [ ] Highlightning text on pipe
+- [ ] Pride flags
+
 ## 🗒️ License
 
 `blahaj` is licensed under [Apache-2.0](LICENSE) license.
