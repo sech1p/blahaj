@@ -110,13 +110,30 @@ const main = async (_arguments: string[]) => {
     });
   }
 
-  if (_arguments.length === 3 && _arguments[2] == "--classic") {
+  if (_arguments.length >= 3 && _arguments[2] == "--classic") {
+    const args = _arguments.slice(2);
+    let width = null;
+    let height = null;
+
+    for (let i = 0; i < args.length; i++) {
+      switch (args[i]) {
+        case "width": {
+          width = parseInt(args[++i]);
+          break;
+        }
+        case "height": {
+          height = parseInt(args[++i]);
+          break;
+        }
+      }
+    }
+
     console.log(
       await draw(
         BLAHAJ_URL,
         {
-          width: 80,
-          height: 80,
+          width: width === null ? 80 : width,
+          height: height === null ? 80 : height,
         },
       ),
     );
@@ -179,12 +196,29 @@ const main = async (_arguments: string[]) => {
     .option("-b, --baby", "output the baby blahaj")
     .action(async () => {
       if (_arguments.includes("classic")) {
+        const args = _arguments.slice(3);
+        let width = null;
+        let height = null;
+
+        for (let i = 0; i < args.length; i++) {
+          switch (args[i]) {
+            case "width": {
+              width = parseInt(args[++i]);
+              break;
+            }
+            case "height": {
+              height = parseInt(args[++i]);
+              break;
+            }
+          }
+        }
+
         console.log(
           await draw(
             BABY_BLAHAJ_URL,
             {
-              width: 80,
-              height: 80,
+              width: width === null ? 80 : width,
+              height: height === null ? 80 : height,
             },
           ),
         );

@@ -27,6 +27,14 @@ Commands:
 
 $ blahaj
 
+# In classic modes you can specify width and height of blahaj by "width <integer> height <integer>"
+# For example:
+#
+# $ blahaj --classic width 50 height 50
+#
+# $ blahaj --baby classic width 50 height 50
+#
+
 $ blahaj --classic
 
 $ blahaj --baby
@@ -50,7 +58,7 @@ Additionally, you need `viu` command which you can download it from [here](https
 - [ ] More ascii art blahajs
 - [ ] Different color blahajs
 - [X] Ascii art without unicode
-- [ ] Change width and height of rendered blahaj
+- [X] Change width and height of rendered blahaj
 
 ✨ Plans for v0.3.0:
 
