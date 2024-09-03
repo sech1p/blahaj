@@ -25,6 +25,17 @@ Options:
 Commands:
   ascii_art [options]  display blahaj as ascii art
 
+$ blahaj ascii_art --help
+Usage: blahaj ascii_art [options]
+
+display blahaj as ascii art
+
+Options:
+  --no-unicode      displays ascii art without unicode characters of blahaj
+  --default         displays default ascii art (unicode) of blahaj
+  --pride <string>  select pride color of ascii art haj [gay, lesbian, transgender, nonbinary]
+  -h, --help        display help for command
+
 $ blahaj
 
 # In classic modes you can specify width and height of blahaj by "width <integer> height <integer>"
