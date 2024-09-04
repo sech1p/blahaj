@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
 import checkIfCommandExists from "./commandexists";
+import { get } from "node:https";
+import { createWriteStream } from "node:fs";
 import { spawn } from "node:child_process";
 import { draw } from "terminal-img";
 import { program } from "commander";
@@ -99,10 +101,17 @@ const main = async (_arguments: string[]) => {
     checkIfCommandExists("viu --version")
     .then((exists) => {
       if (exists) {
-        spawn("curl", [`${BLAHAJ_URL} -o /tmp/blahaj.jpg`]);
-        console.log();
-        spawn("viu", ["/tmp/blahaj.jpg"], { stdio: "inherit" });
-        process.exit(0);
+        const file = createWriteStream("/tmp/blahaj.jpg");
+        get(BLAHAJ_URL, response => {
+          response.pipe(file);
+          file.on("finish", () => {
+            file.close(() => {
+              console.log();
+              spawn("viu", ["/tmp/blahaj.jpg"], { stdio: "inherit" });
+              process.exit(0);
+            });
+          });
+        });
       } else {
         console.error("❌ viu command not found! Please install it from https://github.com/atanunq/viu");
         process.exit(1);
@@ -228,10 +237,17 @@ const main = async (_arguments: string[]) => {
       checkIfCommandExists("viu --version")
         .then((exists) => {
           if (exists) {
-            spawn("curl", [`${BABY_BLAHAJ_URL} -o /tmp/baby_blahaj.jpg`]);
-            console.log();
-            spawn("viu", ["/tmp/baby_blahaj.jpg"], { stdio: "inherit" });
-            process.exit(0);
+            const file = createWriteStream("/tmp/baby_blahaj.jpg");
+            get(BLAHAJ_URL, response => {
+              response.pipe(file);
+              file.on("finish", () => {
+                file.close(() => {
+                  console.log();
+                  spawn("viu", ["/tmp/baby_blahaj.jpg"], { stdio: "inherit" });
+                  process.exit(0);
+                });
+              });
+            });
           } else {
             console.error("❌ viu command not found! Please install it from https://github.com/atanunq/viu");
             process.exit(1);
