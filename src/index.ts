@@ -238,7 +238,7 @@ const main = async (_arguments: string[]) => {
         .then((exists) => {
           if (exists) {
             const file = createWriteStream("/tmp/baby_blahaj.jpg");
-            get(BLAHAJ_URL, response => {
+            get(BABY_BLAHAJ_URL, response => {
               response.pipe(file);
               file.on("finish", () => {
                 file.close(() => {
