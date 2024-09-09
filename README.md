@@ -8,6 +8,13 @@
 
 `blahaj` is a simple command line program to display in photo or ascii art our beloved shark from IKEA
 
+## ⚠️ Important
+
+`blahaj` for rendering plushie shark image in HD is dependent on [viu](https://github.com/atanunq/viu).
+However, not on every terminals blahaj are rendered correctly. `blahaj` is tested under KDE 6 desktop environment (Konsole as terminal) and Arch Linux.
+
+If blahaj is not except your expectations or you want fix it under your configuration then feel free to making [issue](https://github.com/sech1p/blahaj/issues) or [Pull Request](https://github.com/sech1p/blahaj/pulls). Thanks!
+
 ## ❓ Usage
 
 ```sh
