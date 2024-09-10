@@ -1,6 +1,6 @@
 {
   "name": "@sech1p/blahaj",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Displays blahaj in your terminal",
   "main": "src/index.ts",
   "bin": {
