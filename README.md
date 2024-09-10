@@ -78,11 +78,6 @@ $ blahaj ascii_art --default # (or --pride or --no-unicode)
 
 $ blahaj ascii_art --no-unicode # (or --no-unicode 2 or --no-unicode 3 to render different sharks)
 
-# Currently available backgrounds:
-#
-# gay
-#
-
 $ cat example_file_meow.txt | blahaj --pipe --background gay
 ```
 
