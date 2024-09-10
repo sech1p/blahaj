@@ -130,7 +130,7 @@ const main = async (_arguments: string[]) => {
     });
   }
 
-  if (_arguments.length >= 3 && _arguments[2] == "--classic") {
+  if (_arguments.length >= 3 && _arguments[2] == "--classic" || _arguments[2] == "-c") {
     const args = _arguments.slice(2);
     let width = null;
     let height = null;
