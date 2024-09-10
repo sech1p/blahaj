@@ -107,7 +107,7 @@ Additionally, you need `viu` command which you can download it from [here](https
 
 ✨ Plans for v0.3.0:
 
-- [ ] Highlightning text on pipe
+- [X] Highlightning text on pipe
 - [ ] Pride flags
 
 ## 🗒️ License
