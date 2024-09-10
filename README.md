@@ -53,10 +53,16 @@ Usage: blahaj ascii_art [options]
 display blahaj as ascii art
 
 Options:
-  --no-unicode      displays ascii art without unicode characters of blahaj
-  --default         displays default ascii art (unicode) of blahaj
-  --pride <string>  select pride color of ascii art haj [gay, lesbian, transgender, nonbinary, poly]
-  -h, --help        display help for command
+  --no-unicode [integer]  displays ascii art without unicode characters of blahaj
+  
+  Available options (integer, not required):
+  
+    2
+    3
+  
+  --default               displays default ascii art (unicode) of blahaj
+  --pride <string>        select pride color of ascii art haj [gay, lesbian, transgender, nonbinary, poly]
+  -h, --help              display help for command
 
 $ blahaj
 
@@ -76,7 +82,7 @@ $ blahaj --baby classic
 
 $ blahaj ascii_art --default # (or --pride or --no-unicode)
 
-$ blahaj ascii_art --no-unicode # (or --no-unicode 2 or --no-unicode 3 to render different sharks)
+$ blahaj ascii_art --no-unicode
 
 $ cat example_file_meow.txt | blahaj --pipe --background gay
 ```

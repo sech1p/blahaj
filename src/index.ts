@@ -274,7 +274,13 @@ const main = async (_arguments: string[]) => {
 
   program.command("ascii_art")
     .description("display blahaj as ascii art")
-    .option("--no-unicode", "displays ascii art without unicode characters of blahaj")
+    .option("--no-unicode [integer]", `displays ascii art without unicode characters of blahaj
+
+Available options (integer, not required):
+
+  2
+  3
+`)
     .option("--default", "displays default ascii art (unicode) of blahaj")
     .option("--pride <string>", "select pride color of ascii art haj [gay, lesbian, transgender, nonbinary, poly]")
     .action((_, options) => {
