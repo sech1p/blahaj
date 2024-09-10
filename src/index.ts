@@ -222,6 +222,14 @@ const main = async (_arguments: string[]) => {
         ansis.bg(201), // Purple
         ansis.bg(21), // Blue
       ];
+    } else if (background === "lesbian") {
+      colors = [
+        ansis.bg(202), // Orange
+        ansis.bg(208), // Light Orange
+        ansis.bg(255), // White
+        ansis.bg(165), // Light Pink i guess?
+        ansis.bg(89), // Magenta i guess?
+      ];
     } else {
       console.error("Invalid background flag. Use blahaj --help to view available flags.");
       process.exit(1);
@@ -351,6 +359,7 @@ Available backgrounds:
 
   gay
   bi
+  lesbian
 
 Available texts:
 

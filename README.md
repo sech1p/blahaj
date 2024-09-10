@@ -36,6 +36,7 @@ Options:
   
     gay
     bi
+    lesbian
   
   Available texts:
 
