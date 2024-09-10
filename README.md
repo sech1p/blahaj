@@ -62,6 +62,8 @@ $ blahaj --baby
 $ blahaj --baby classic
 
 $ blahaj ascii_art --default # (or --pride or --no-unicode)
+
+$ blahaj ascii_art --no-unicode # (or --no-unicode 2 or --no-unicode 3 to render different sharks)
 ```
 
 ## 💾 Installation
@@ -72,10 +74,10 @@ Additionally, you need `viu` command which you can download it from [here](https
 
 ## 🗺️ Roadmap
 
-✨ Plans for v0.2.0:
+✨ Plans for v0.2.0 (done):
 
 - [X] Binaries
-- [ ] More ascii art blahajs
+- [X] More ascii art blahajs
 - [X] Different color blahajs (there are only basic flags because there is no enough colorous square emojis to do it)
 - [X] Ascii art without unicode
 - [X] Change width and height of rendered blahaj

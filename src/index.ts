@@ -45,6 +45,31 @@ const BLAHAJ_ASCII_ART_NO_UNICODE = `
                                                                                 
                                                                                 
 `;
+// All sharks below are borrowed from https://ascii.co.uk/art/sharks
+// All rights go to their creators
+// Credits: Tom Youderian
+const BLAHAJ_ASCII_ART_NO_UNICODE_SECOND = `
+\\.          |\\
+   \`.___---~~  ~~~--_
+   //~~----___  (_o_-~
+  '           |/'
+`;
+// Credits: jgs
+const BLAHAJ_ASCII_ART_NO_UNICODE_THIRD = `
+               ,
+             .';
+         .-\\\` .'
+       ,\\\`.-'-.\`\\\\
+      ; /     '-'
+      | \\\\       ,-,
+      \\\\  '-.__   )_\\\`'._
+       '.     \\\`\\\`\\\`      \\\`\\\`'--._
+      .-' ,                   \\\`'-.
+       '-\\\`-._           ((   o   )
+              \\\`'--....(\\\`- ,__..--'
+                       '-'
+`;
+
 const BLAHAJ_ASCII_ART: string = `
 🟦🟦🟦🟦🟦➖🟦🟦
 ⬜🔳⬜🟦🟦🟦🟦🟦
@@ -178,6 +203,14 @@ const main = async (_arguments: string[]) => {
 
       switch (mainOption) {
         case "--no-unicode": {
+          if (params[1] === "2") {
+            console.log(BLAHAJ_ASCII_ART_NO_UNICODE_SECOND);
+            process.exit(0);
+          }
+          if (params[1] === "3") {
+            console.log(BLAHAJ_ASCII_ART_NO_UNICODE_THIRD);
+            process.exit(0);
+          }
           console.log(BLAHAJ_ASCII_ART_NO_UNICODE);
           process.exit(0);
         }
