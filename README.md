@@ -15,6 +15,8 @@ However, not on every terminals blahaj are rendered correctly. `blahaj` is teste
 
 If blahaj is not except your expectations or you want fix it under your configuration then feel free to making [issue](https://github.com/sech1p/blahaj/issues) or [Pull Request](https://github.com/sech1p/blahaj/pulls). Thanks!
 
+Ensure that you have latest version of node installed (not LTS preffered), otherwise older versions of node.js will not recognize few imports (like `node:module`)
+
 ## ❓ Usage
 
 ```sh
