@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@types/commander": "^2.12.2",
+    "ansis": "^3.3.2",
     "commander": "^12.1.0",
     "terminal-img": "^2.0.24",
     "typescript": "^5.4.5"
