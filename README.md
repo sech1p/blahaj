@@ -2,6 +2,10 @@
 
 <p align="center">
     <img src="images/blahaj_showcase.gif" alt="blahaj command-line program showcase" />
+    <br />
+    <img src="images/pipe_presentation.png" alt="blahaj pipe queerify option showcase" />
+    <br />
+    <i>(pssst. use <code>blahaj</code> instead of <code>npm start</code>/</code>node dist/index.js ...</code> because it's only for development purposes)</i>
 </p>
 
 ## ❓ ~~OwO~~, what's this?
@@ -20,16 +24,25 @@ Ensure that you have latest version of node installed (not LTS preffered), other
 ## ❓ Usage
 
 ```sh
-$ blahaj --help
 Usage: blahaj [options] [command]
 
 🦈 Display blahaj in your terminal!
 
 Options:
   -V, --version        output the version number
+  -p, --pipe <param>   pipe text to queer colors in terminal (param: background [-b, --background] || text [-t, --text] or both)
+  
+  Available backgrounds:
+  
+    gay
+  
+  Available texts:
+
+    -
+
   -c, --classic        output the blahaj in legacy way by jimp (low quality so you are warned!)
-  -b, --baby           output the baby blahaj (use classic keyword after --baby argument if you want render it by legacy way)
-  -h, --help           display help for command 
+  -b, --baby           output the baby blahaj
+  -h, --help           display help for command
 
 Commands:
   ascii_art [options]  display blahaj as ascii art
@@ -64,6 +77,13 @@ $ blahaj --baby classic
 $ blahaj ascii_art --default # (or --pride or --no-unicode)
 
 $ blahaj ascii_art --no-unicode # (or --no-unicode 2 or --no-unicode 3 to render different sharks)
+
+# Currently available backgrounds:
+#
+# gay
+#
+
+$ cat example_file_meow.txt | blahaj --pipe --background gay
 ```
 
 ## 💾 Installation

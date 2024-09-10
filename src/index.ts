@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import checkIfCommandExists from "./commandexists";
+import ansis from "ansis";
 import { get } from "node:https";
 import { createWriteStream } from "node:fs";
 import { spawn } from "node:child_process";
@@ -132,6 +133,26 @@ const BLAHAJ_POLY_ASCII_ART: string = `
 ➖➖➖🟪🟪🟪
 ➖➖➖🟪🟪`;
 
+const readFromStdin = async () => {
+  return new Promise((resolve: any, reject: any) => {
+    let data: string = "";
+
+    process.stdin.setEncoding("utf-8");
+
+    process.stdin.on("data", async (chunk: any) => {
+      data += chunk;
+    });
+
+    process.stdin.on("end", async () => {
+      resolve(data);
+    });
+
+    process.stdin.on("error", (exception: any) => {
+      reject(exception);
+    });
+  });
+}
+
 const main = async (_arguments: string[]) => {
   if (_arguments.length === 2) {
     checkIfCommandExists("viu --version")
@@ -153,6 +174,59 @@ const main = async (_arguments: string[]) => {
         process.exit(1);
       }
     });
+  }
+
+  if (_arguments.length >= 3 && _arguments[2] == "--pipe" || _arguments[2] == "-p") {
+    const args: string[] = _arguments.slice(2);
+    const data: any = await readFromStdin();
+    let background = null;
+    let text = null;
+
+    for (let i = 0; i < args.length; i++) {
+      switch (args[i]) {
+        case "-b":
+        case "--background": {
+          background = args[++i];
+          break;
+        }
+        case "-t":
+        case "--text": {
+          text = args[++i];
+          break;
+        }
+      }
+    }
+
+    if (background === null && text === null) {
+      console.error("Missing flags. Provide background (-b or --background) or text (-t or --text) flag or both.");
+      process.exit(1);
+    }
+
+    const backgroundLines = data.split("\n");
+    let coloredText: string = "";
+
+    if (background === "gay") {
+      const gayColors: Array<any> = [
+        ansis.bg(196), // Red
+        ansis.bg(202), // Orange
+        ansis.bg(226), // Yellow
+        ansis.bg(40), // Green
+        ansis.bg(17), // Blue
+        ansis.bg(57), // Violet
+      ];
+
+      for (let i = 0; i < backgroundLines.length; i++) {
+        const colorIndex = i % gayColors.length;
+        coloredText += gayColors[colorIndex](backgroundLines[i]) + "\n"
+      }
+    } else {
+      console.error("Invalid background flag. Use blahaj --help to view available flags.");
+      process.exit(1);
+    }
+    
+    console.log(coloredText);
+    
+    process.exit(0);
   }
 
   if (_arguments.length >= 3 && _arguments[2] == "--classic" || _arguments[2] == "-c") {
@@ -248,6 +322,20 @@ const main = async (_arguments: string[]) => {
         }
       }
     });
+
+  program
+    .option("-p, --pipe <param>", `pipe text to queer colors in terminal (param: background [-b, --background] || text [-t, --text] or both)
+
+Available backgrounds:
+
+  gay
+
+Available texts:
+
+  -
+`);
+  program
+    .option("-c, --classic", "output the blahaj in legacy way by jimp (low quality so you are warned!)");
 
   program
     .option("-b, --baby", "output the baby blahaj")
