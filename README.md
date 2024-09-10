@@ -42,7 +42,7 @@ display blahaj as ascii art
 Options:
   --no-unicode      displays ascii art without unicode characters of blahaj
   --default         displays default ascii art (unicode) of blahaj
-  --pride <string>  select pride color of ascii art haj [gay, lesbian, transgender, nonbinary]
+  --pride <string>  select pride color of ascii art haj [gay, lesbian, transgender, nonbinary, poly]
   -h, --help        display help for command
 
 $ blahaj
@@ -76,7 +76,7 @@ Additionally, you need `viu` command which you can download it from [here](https
 
 - [X] Binaries
 - [ ] More ascii art blahajs
-- [ ] Different color blahajs
+- [X] Different color blahajs (there are only basic flags because there is no enough colorous square emojis to do it)
 - [X] Ascii art without unicode
 - [X] Change width and height of rendered blahaj
 

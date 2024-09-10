@@ -95,6 +95,17 @@ const BLAHAJ_NONBINARY_ASCII_ART: string = `
 ➖➖➖➖🟪🟪🟪
 ➖➖➖⬛⬛⬛
 ➖➖➖⬛⬛`;
+// New poly flag because old is ugly kinda, just i preffer the newest one
+const BLAHAJ_POLY_ASCII_ART: string = `
+🟦🟦🟦🟦🟦➖🟦🟦
+⬜🔳⬜🟦🟦🟦🟦🟦
+➖🟦🟦🟦🟦🟦🟦
+➖➖🟥🟥🟥🟥🟥🟥
+➖🟥🟥➖🟥🟥🟥🟥 
+➖➖➖➖➖🟥🟥🟥
+➖➖➖➖🟪🟪🟪
+➖➖➖🟪🟪🟪
+➖➖➖🟪🟪`;
 
 const main = async (_arguments: string[]) => {
   if (_arguments.length === 2) {
@@ -159,7 +170,7 @@ const main = async (_arguments: string[]) => {
     .description("display blahaj as ascii art")
     .option("--no-unicode", "displays ascii art without unicode characters of blahaj")
     .option("--default", "displays default ascii art (unicode) of blahaj")
-    .option("--pride <string>", "select pride color of ascii art haj [gay, lesbian, transgender, nonbinary]")
+    .option("--pride <string>", "select pride color of ascii art haj [gay, lesbian, transgender, nonbinary, poly]")
     .action((_, options) => {
       const params = options.parent.args.slice(1);
       const mainOption = params[0];
@@ -190,6 +201,10 @@ const main = async (_arguments: string[]) => {
             }
             case "nonbinary": {
               console.log(BLAHAJ_NONBINARY_ASCII_ART);
+              process.exit(0);
+            }
+            case "poly": {
+              console.log(BLAHAJ_POLY_ASCII_ART);
               process.exit(0);
             }
           }
