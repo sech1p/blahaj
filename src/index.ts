@@ -219,6 +219,13 @@ const main = async (_arguments: string[]) => {
         const colorIndex = i % gayColors.length;
         coloredText += gayColors[colorIndex](backgroundLines[i]) + "\n"
       }
+
+      if (backgroundLines.length === 2) {
+        coloredText = data.split("").map((char: string, index: number) => {
+          const color = gayColors[index % gayColors.length];
+          return color(char);
+        }).join("");
+      }
     } else {
       console.error("Invalid background flag. Use blahaj --help to view available flags.");
       process.exit(1);
