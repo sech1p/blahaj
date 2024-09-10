@@ -35,6 +35,7 @@ Options:
   Available backgrounds:
   
     gay
+    bi
   
   Available texts:
 

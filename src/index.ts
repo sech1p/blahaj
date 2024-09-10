@@ -204,9 +204,10 @@ const main = async (_arguments: string[]) => {
 
     const backgroundLines = data.split("\n");
     let coloredText: string = "";
+    let colors: Array<any> = [];
 
     if (background === "gay") {
-      const gayColors: Array<any> = [
+      colors = [
         ansis.bg(196), // Red
         ansis.bg(202), // Orange
         ansis.bg(226), // Yellow
@@ -214,21 +215,28 @@ const main = async (_arguments: string[]) => {
         ansis.bg(17), // Blue
         ansis.bg(57), // Violet
       ];
-
-      for (let i = 0; i < backgroundLines.length; i++) {
-        const colorIndex = i % gayColors.length;
-        coloredText += gayColors[colorIndex](backgroundLines[i]) + "\n"
-      }
-
-      if (backgroundLines.length === 2) {
-        coloredText = data.split("").map((char: string, index: number) => {
-          const color = gayColors[index % gayColors.length];
-          return color(char);
-        }).join("");
-      }
+      
+    } else if (background === "bi") {
+      colors = [
+        ansis.bg(125), // Pink
+        ansis.bg(201), // Purple
+        ansis.bg(21), // Blue
+      ];
     } else {
       console.error("Invalid background flag. Use blahaj --help to view available flags.");
       process.exit(1);
+    }
+
+    for (let i = 0; i < backgroundLines.length; i++) {
+      const colorIndex = i % colors.length;
+      coloredText += colors[colorIndex](backgroundLines[i]) + "\n"
+    }
+
+    if (backgroundLines.length === 2) {
+      coloredText = data.split("").map((char: string, index: number) => {
+        const color = colors[index % colors.length];
+        return color(char);
+      }).join("");
     }
     
     console.log(coloredText);
@@ -342,6 +350,7 @@ Available options (integer, not required):
 Available backgrounds:
 
   gay
+  bi
 
 Available texts:
 
