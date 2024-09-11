@@ -237,7 +237,7 @@ const main = async (_arguments: string[]) => {
 
     for (let i = 0; i < backgroundLines.length; i++) {
       const colorIndex = i % colors.length;
-      coloredText += colors[colorIndex](backgroundLines[i]) + "\n"
+      coloredText += colors[colorIndex](backgroundLines[i]) + "\n";
     }
 
     if (backgroundLines.length === 2) {
