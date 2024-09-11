@@ -24,6 +24,7 @@ Ensure that you have latest version of node installed (not LTS preffered), other
 ## ❓ Usage
 
 ```sh
+$ blahaj --help
 Usage: blahaj [options] [command]
 
 🦈 Display blahaj in your terminal!
