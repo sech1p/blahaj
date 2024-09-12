@@ -94,6 +94,8 @@ $ cat example_file_meow.txt | blahaj --pipe --background gay
 
 To install `blahaj` in your computer, you need to use `npm install -g @sech1p/blahaj` command or download single binary from [releases](https://github.com/sech1p/blahaj/releases). That's it.
 
+Also, if you are Arch Linux or -like distribution user you can get blahaj from [AUR](https://aur.archlinux.org/packages/blahaj-cli).
+
 Additionally, you need `viu` command which you can download it from [here](https://github.com/atanunq/viu). This allows to render blahaj in high quality.
 
 ## 🗺️ Roadmap
