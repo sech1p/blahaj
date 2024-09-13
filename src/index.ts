@@ -404,28 +404,30 @@ Available texts:
         process.exit(0);
       }
 
-      checkIfCommandExists("viu --version")
-        .then((exists) => {
-          if (exists) {
-            const file = createWriteStream("/tmp/baby_blahaj.jpg");
-            get(BABY_BLAHAJ_URL, response => {
-              response.pipe(file);
-              file.on("finish", () => {
-                file.close(() => {
-                  console.log();
-                  let proc=spawn("viu", ["/tmp/baby_blahaj.jpg"], { stdio: "inherit" });
-                  proc.on('close', (code:number) => {
-                    process.exit(0);
-                  });
+      if(program.opts().baby === true) {
+        checkIfCommandExists("viu --version")
+          .then((exists) => {
+            if (exists) {
+              const file = createWriteStream("/tmp/baby_blahaj.jpg");
+              get(BABY_BLAHAJ_URL, response => {
+                response.pipe(file);
+                file.on("finish", () => {
+                  file.close(() => {
+                    console.log();
+                    let proc=spawn("viu", ["/tmp/baby_blahaj.jpg"], { stdio: "inherit" });
+                    proc.on('close', (code:number) => {
+                      process.exit(0);
+                    });
 
+                  });
                 });
               });
-            });
-          } else {
-            console.error("❌ viu command not found! Please install it from https://github.com/atanunq/viu");
-            process.exit(1);
-          }
-        });
+            } else {
+              console.error("❌ viu command not found! Please install it from https://github.com/atanunq/viu");
+              process.exit(1);
+            }
+          });
+      }
     });
 
   program.parse(_arguments);
