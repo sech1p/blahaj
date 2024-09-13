@@ -240,6 +240,14 @@ const main = async (_arguments: string[]) => {
         ansis.bgRgb(155,89,208).fg(15), // Purple/Lavender
         ansis.bgRgb(45,45,45).fg(15), // kinda black
       ];
+    } else if (background === "trans" || background === "transgender") {
+      colors = [ //colors from the svg on wikipedia
+        ansis.bgRgb(91,206,250).fg(0), // Blue
+        ansis.bgRgb(245,169,184).fg(0), // Pink
+        ansis.bgRgb(255,255,255).fg(0), // White
+        ansis.bgRgb(245,169,184).fg(0), // Pink
+        ansis.bgRgb(91,206,250).fg(0), // Blue
+      ];
     } else {
       console.error("Invalid background flag. Use blahaj --help to view available flags.");
       process.exit(1);
