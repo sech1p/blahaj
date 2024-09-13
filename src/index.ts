@@ -233,6 +233,13 @@ const main = async (_arguments: string[]) => {
         ansis.bg(165), // Light Pink i guess?
         ansis.bg(89), // Magenta i guess?
       ];
+    } else if (background === "enby" || background === "nb" || background === "nonbinary" || background === "non-binary") {
+      colors = [ //colors from the svg on wikipedia
+        ansis.bgRgb(255,244,51).fg(0), // Yellow
+        ansis.bgRgb(255,255,255).fg(0), // White
+        ansis.bgRgb(155,89,208).fg(15), // Purple/Lavender
+        ansis.bgRgb(45,45,45).fg(15), // kinda black
+      ];
     } else {
       console.error("Invalid background flag. Use blahaj --help to view available flags.");
       process.exit(1);
@@ -363,6 +370,7 @@ Available backgrounds:
   gay
   bi
   lesbian
+  enby, nb, nonbinary, non-binary
 
 Available texts:
 
