@@ -164,8 +164,11 @@ const main = async (_arguments: string[]) => {
           file.on("finish", () => {
             file.close(() => {
               console.log();
-              spawn("viu", ["/tmp/blahaj.jpg"], { stdio: "inherit" });
-              process.exit(0);
+              let proc=spawn("viu", ["/tmp/blahaj.jpg"], { stdio: "inherit" });
+              proc.on('close', (code:number) => {
+                process.exit(0);
+              });
+              //process.exit(0);
             });
           });
         });
@@ -217,10 +220,10 @@ const main = async (_arguments: string[]) => {
       ];
       
     } else if (background === "bi") {
-      colors = [
-        ansis.bg(125), // Pink
-        ansis.bg(201), // Purple
-        ansis.bg(21), // Blue
+      colors = [// from the wikipedia page of the bi flag
+        ansis.bgRgb(214,2,112), // Pink
+        ansis.bgRgb(155,79,150), // Purple
+        ansis.bgRgb(0,56,168), // Blue
       ];
     } else if (background === "lesbian") {
       colors = [
@@ -229,6 +232,27 @@ const main = async (_arguments: string[]) => {
         ansis.bg(255), // White
         ansis.bg(165), // Light Pink i guess?
         ansis.bg(89), // Magenta i guess?
+      ];
+    } else if (background === "enby" || background === "nb" || background === "nonbinary" || background === "non-binary") {
+      colors = [ //colors from the svg on wikipedia
+        ansis.bgRgb(255,244,51).fg(0), // Yellow
+        ansis.bgRgb(255,255,255).fg(0), // White
+        ansis.bgRgb(155,89,208).fg(15), // Purple/Lavender
+        ansis.bgRgb(45,45,45).fg(15), // kinda black
+      ];
+    } else if (background === "trans" || background === "transgender") {
+      colors = [ //colors from the svg on wikipedia
+        ansis.bgRgb(91,206,250).fg(0), // Blue
+        ansis.bgRgb(245,169,184).fg(0), // Pink
+        ansis.bgRgb(255,255,255).fg(0), // White
+        ansis.bgRgb(245,169,184).fg(0), // Pink
+        ansis.bgRgb(91,206,250).fg(0), // Blue
+      ];
+    } else if (background === "pan") {
+      colors = [//colors from the svg on wikipedia
+        ansis.bgRgb(255, 33, 140).fg(15), // Pink
+        ansis.bgRgb(255, 216, 0).fg(0), // Yellow
+        ansis.bgRgb(33, 177, 255).fg(0), // Blue
       ];
     } else {
       console.error("Invalid background flag. Use blahaj --help to view available flags.");
@@ -360,6 +384,9 @@ Available backgrounds:
   gay
   bi
   lesbian
+  enby, nb, nonbinary, non-binary
+  trans, transgender
+  pan
 
 Available texts:
 
@@ -401,25 +428,30 @@ Available texts:
         process.exit(0);
       }
 
-      checkIfCommandExists("viu --version")
-        .then((exists) => {
-          if (exists) {
-            const file = createWriteStream("/tmp/baby_blahaj.jpg");
-            get(BABY_BLAHAJ_URL, response => {
-              response.pipe(file);
-              file.on("finish", () => {
-                file.close(() => {
-                  console.log();
-                  spawn("viu", ["/tmp/baby_blahaj.jpg"], { stdio: "inherit" });
-                  process.exit(0);
+      if(program.opts().baby === true) {
+        checkIfCommandExists("viu --version")
+          .then((exists) => {
+            if (exists) {
+              const file = createWriteStream("/tmp/baby_blahaj.jpg");
+              get(BABY_BLAHAJ_URL, response => {
+                response.pipe(file);
+                file.on("finish", () => {
+                  file.close(() => {
+                    console.log();
+                    let proc=spawn("viu", ["/tmp/baby_blahaj.jpg"], { stdio: "inherit" });
+                    proc.on('close', (code:number) => {
+                      process.exit(0);
+                    });
+
+                  });
                 });
               });
-            });
-          } else {
-            console.error("❌ viu command not found! Please install it from https://github.com/atanunq/viu");
-            process.exit(1);
-          }
-        });
+            } else {
+              console.error("❌ viu command not found! Please install it from https://github.com/atanunq/viu");
+              process.exit(1);
+            }
+          });
+      }
     });
 
   program.parse(_arguments);
