@@ -220,10 +220,10 @@ const main = async (_arguments: string[]) => {
       ];
       
     } else if (background === "bi") {
-      colors = [
-        ansis.bg(125), // Pink
-        ansis.bg(201), // Purple
-        ansis.bg(21), // Blue
+      colors = [// from the wikipedia page of the bi flag
+        ansis.bgRgb(214,2,112), // Pink
+        ansis.bgRgb(155,79,150), // Purple
+        ansis.bgRgb(0,56,168), // Blue
       ];
     } else if (background === "lesbian") {
       colors = [
