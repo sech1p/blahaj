@@ -248,6 +248,12 @@ const main = async (_arguments: string[]) => {
         ansis.bgRgb(245,169,184).fg(0), // Pink
         ansis.bgRgb(91,206,250).fg(0), // Blue
       ];
+    } else if (background === "pan") {
+      colors = [//colors from the svg on wikipedia
+        ansis.bgRgb(255, 33, 140).fg(15), // Pink
+        ansis.bgRgb(255, 216, 0).fg(0), // Yellow
+        ansis.bgRgb(33, 177, 255).fg(0), // Blue
+      ];
     } else {
       console.error("Invalid background flag. Use blahaj --help to view available flags.");
       process.exit(1);
@@ -379,6 +385,8 @@ Available backgrounds:
   bi
   lesbian
   enby, nb, nonbinary, non-binary
+  trans, transgender
+  pan
 
 Available texts:
 
