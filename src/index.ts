@@ -164,8 +164,11 @@ const main = async (_arguments: string[]) => {
           file.on("finish", () => {
             file.close(() => {
               console.log();
-              spawn("viu", ["/tmp/blahaj.jpg"], { stdio: "inherit" });
-              process.exit(0);
+              let proc=spawn("viu", ["/tmp/blahaj.jpg"], { stdio: "inherit" });
+              proc.on('close', (code:number) => {
+                process.exit(0);
+              });
+              //process.exit(0);
             });
           });
         });
@@ -410,8 +413,11 @@ Available texts:
               file.on("finish", () => {
                 file.close(() => {
                   console.log();
-                  spawn("viu", ["/tmp/baby_blahaj.jpg"], { stdio: "inherit" });
-                  process.exit(0);
+                  let proc=spawn("viu", ["/tmp/baby_blahaj.jpg"], { stdio: "inherit" });
+                  proc.on('close', (code:number) => {
+                    process.exit(0);
+                  });
+
                 });
               });
             });
