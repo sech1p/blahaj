@@ -164,11 +164,10 @@ const main = async (_arguments: string[]) => {
           file.on("finish", () => {
             file.close(() => {
               console.log();
-              let proc=spawn("viu", ["/tmp/blahaj.jpg"], { stdio: "inherit" });
-              proc.on('close', (code:number) => {
+              let proc = spawn("viu", ["/tmp/blahaj.jpg"], { stdio: "inherit" });
+              proc.on("close", (code: number) => {
                 process.exit(0);
               });
-              //process.exit(0);
             });
           });
         });
@@ -221,9 +220,9 @@ const main = async (_arguments: string[]) => {
       
     } else if (background === "bi") {
       colors = [// from the wikipedia page of the bi flag
-        ansis.bgRgb(214,2,112), // Pink
-        ansis.bgRgb(155,79,150), // Purple
-        ansis.bgRgb(0,56,168), // Blue
+        ansis.bgRgb(214, 2, 112), // Pink
+        ansis.bgRgb(155, 79, 150), // Purple
+        ansis.bgRgb(0, 56, 168), // Blue
       ];
     } else if (background === "lesbian") {
       colors = [
@@ -235,18 +234,18 @@ const main = async (_arguments: string[]) => {
       ];
     } else if (background === "enby" || background === "nb" || background === "nonbinary" || background === "non-binary") {
       colors = [ //colors from the svg on wikipedia
-        ansis.bgRgb(255,244,51).fg(0), // Yellow
-        ansis.bgRgb(255,255,255).fg(0), // White
-        ansis.bgRgb(155,89,208).fg(15), // Purple/Lavender
-        ansis.bgRgb(45,45,45).fg(15), // kinda black
+        ansis.bgRgb(255, 244, 51).fg(0), // Yellow
+        ansis.bgRgb(255, 255, 255).fg(0), // White
+        ansis.bgRgb(155, 89, 208).fg(15), // Purple/Lavender
+        ansis.bgRgb(45, 45, 45).fg(15), // kinda black
       ];
     } else if (background === "trans" || background === "transgender") {
       colors = [ //colors from the svg on wikipedia
-        ansis.bgRgb(91,206,250).fg(0), // Blue
-        ansis.bgRgb(245,169,184).fg(0), // Pink
-        ansis.bgRgb(255,255,255).fg(0), // White
-        ansis.bgRgb(245,169,184).fg(0), // Pink
-        ansis.bgRgb(91,206,250).fg(0), // Blue
+        ansis.bgRgb(91, 206, 250).fg(0), // Blue
+        ansis.bgRgb(245, 169, 184).fg(0), // Pink
+        ansis.bgRgb(255, 255, 255).fg(0), // White
+        ansis.bgRgb(245, 169, 184).fg(0), // Pink
+        ansis.bgRgb(91, 206, 250).fg(0), // Blue
       ];
     } else if (background === "pan") {
       colors = [//colors from the svg on wikipedia
@@ -438,11 +437,10 @@ Available texts:
                 file.on("finish", () => {
                   file.close(() => {
                     console.log();
-                    let proc=spawn("viu", ["/tmp/baby_blahaj.jpg"], { stdio: "inherit" });
-                    proc.on('close', (code:number) => {
+                    let proc = spawn("viu", ["/tmp/baby_blahaj.jpg"], { stdio: "inherit" });
+                    proc.on("close", (code: number) => {
                       process.exit(0);
                     });
-
                   });
                 });
               });
