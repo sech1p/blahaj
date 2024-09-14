@@ -38,6 +38,9 @@ Options:
     gay
     bi
     lesbian
+    enby, nb, nonbinary, non-binary
+    trans, transgender
+    pan
   
   Available texts:
 
