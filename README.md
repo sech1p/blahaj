@@ -4,8 +4,6 @@
     <img src="images/blahaj_showcase.gif" alt="blahaj command-line program showcase" />
     <br />
     <img src="images/pipe_presentation.png" alt="blahaj pipe queerify option showcase" />
-    <br />
-    <i>(pssst. use <code>blahaj</code> instead of <code>npm start</code>/</code>node dist/index.js ...</code> because it's only for development purposes)</i>
 </p>
 
 ## ❓ ~~OwO~~, what's this?
