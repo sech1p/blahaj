@@ -29,6 +29,12 @@ Usage: blahaj [options] [command]
 
 Options:
   -V, --version        output the version number
+  -f, --flag <flag>    display a selected flag in terminal
+        
+  Available flags:
+  
+    gay
+  
   -p, --pipe <param>   pipe text to queer colors in terminal (param: background [-b, --background] || text [-t, --text] or both)
   
   Available backgrounds:
@@ -89,6 +95,8 @@ $ blahaj ascii_art --default # (or --pride or --no-unicode)
 $ blahaj ascii_art --no-unicode
 
 $ cat example_file_meow.txt | blahaj --pipe --background gay
+
+$ blahaj --flag gay
 ```
 
 ## 💾 Installation
@@ -112,7 +120,7 @@ Additionally, you need `viu` command which you can download it from [here](https
 ✨ Plans for v0.3.0:
 
 - [X] Highlightning text on pipe
-- [ ] Pride flags
+- [X] Pride flags
 
 ## 🗒️ License
 

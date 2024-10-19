@@ -178,6 +178,36 @@ const main = async (_arguments: string[]) => {
     });
   }
 
+  if (_arguments.length >= 3 && _arguments[2] == "--flag" || _arguments[2] == "-f") {
+    const args: string[] = _arguments.slice(2);
+    let flag: Array<any> = [];
+
+    if (!args[1]) {
+      console.error("Missing flag argument. Use blahaj --help to view available flags.");
+      process.exit(1);
+    }
+
+    if (args[1] === "gay") {
+      flag = [
+        ansis.bg(196), // Red
+        ansis.bg(202), // Orange
+        ansis.bg(226), // Yellow
+        ansis.bg(40), // Green
+        ansis.bg(17), // Blue
+        ansis.bg(57), // Violet
+      ];
+    }
+
+    for (let i = 0; i < flag.length; i++) {
+      for (let j = 0; j < 25; j++) {
+        process.stdout.write(flag[i](" "));
+      }
+      console.log("");
+    }
+
+    process.exit(0);
+  }
+
   if (_arguments.length >= 3 && _arguments[2] == "--pipe" || _arguments[2] == "-p") {
     const args: string[] = _arguments.slice(2);
     const data: any = await readFromStdin();
@@ -375,6 +405,13 @@ Available options (integer, not required):
       }
     });
 
+  program
+    .option("-f, --flag <flag>", `display a selected flag in terminal
+      
+Available flags:
+
+  gay
+`);
   program
     .option("-p, --pipe <param>", `pipe text to queer colors in terminal (param: background [-b, --background] || text [-t, --text] or both)
 
